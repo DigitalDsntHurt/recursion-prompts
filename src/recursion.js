@@ -46,27 +46,41 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-  if (n === 0) {
-    return true;
-  }
 
-  if (n < 0) {
-    return false;
-  }
 
-  return isEven(n - 2);
+
+
+  // if (n === 0) {
+  //   return true;
+  // }
+  // if (n < 0) {
+  //   return false;
+  // }
+  // return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  // if (n === 0) {
+  //   return 0;
+  // } else {
+  //   return (n - 1) + sumBelow(n - 2);
+  // }
 };
-
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-
+//   // if (x === y) { return [x]; }
+//   // if (y === x + 1) { return [x, y]; }
+//   // var target = [];
+//   if ((y - x) <= 1) { return []; }
+//   return [(x - 1), range((x - 2), y)];
+//   // target.push(x)
+//   // target.push(range((x + 1), (y - 1)))
+//   // target.push(y)
+//   // return target
 };
 
 // 7. Compute the exponent of a number.
@@ -86,6 +100,8 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string.length < 2) { return string; }
+  return reverse(string.slice(1)) + string[0];
 };
 
 // 10. Write a function that determines if a string is a palindrome.
