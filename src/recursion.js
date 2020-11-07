@@ -63,11 +63,24 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  // if (n === 0) {
-  //   return 0;
-  // } else {
-  //   return (n - 1) + sumBelow(n - 2);
-  // }
+  // POSITIVE / NEGATIVE TRACKER
+  const isPositive = n > 0;
+  let nums = Object.keys(Array(Math.abs(n)).fill('')).map(item => Number.parseInt(item)).slice(1);
+
+  // BASE CASE
+  if (nums.length == 0) { return 0; }
+
+  // POSITIVE CASE
+  if (isPositive) {
+    if (nums.length < 2) { return 1; }
+    let last = nums.pop();
+    return last + sumBelow(last)
+  }
+
+  // NEGATIVE CASE
+  if (nums.length < 2) { return -1; }
+  let last = nums.pop();
+  return -last - sumBelow(last)
 };
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
