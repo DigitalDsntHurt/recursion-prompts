@@ -82,18 +82,19 @@ var sumBelow = function(n) {
   let last = nums.pop();
   return -last - sumBelow(last)
 };
+
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-//   // if (x === y) { return [x]; }
-//   // if (y === x + 1) { return [x, y]; }
-//   // var target = [];
-//   if ((y - x) <= 1) { return []; }
-//   return [(x - 1), range((x - 2), y)];
-//   // target.push(x)
-//   // target.push(range((x + 1), (y - 1)))
-//   // target.push(y)
-//   // return target
+  let theRange = [];
+  if (Math.abs(x - y) < 2) { return theRange; }
+
+  if (x > y) {
+    theRange = [x - 1, ...range(x - 1, y)];
+    return theRange;
+  }
+  theRange = [x + 1, ...range(x + 1, y)];
+  return theRange;
 };
 
 // 7. Compute the exponent of a number.
