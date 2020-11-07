@@ -96,7 +96,20 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  var checker = n;
+  while (checker > 0) {
+    if (checker * checker === n) { return true; }
+    checker -= 1;
+  }
+  return false
 };
+
+console.log(powerOfTwo(1));
+console.log(powerOfTwo(16));
+console.log(powerOfTwo(10));
+
+
+
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
