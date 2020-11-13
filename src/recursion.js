@@ -145,7 +145,18 @@ var palindrome = function(string) {
 // modulo(5,2) // 1
 // modulo(17,5) // 2
 // modulo(22,6) // 4
+
+// I : num & divisor
+// O : number : remainder when dividing num by divisor
+// C : must use recursion
+/* E :
+    - x = 0 { 0
+    - y = 0 { NaN
+    - y = x { 0
+    - y > x { x
+*/
 var modulo = function(x, y) {
+
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
@@ -186,6 +197,8 @@ var reverseArr = function(array) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  if (length === 1) { return [value]; }
+  return [value].concat(buildList(value, length - 1));
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
