@@ -182,7 +182,14 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if (str1.length === 0 && str2.length === 0) { return true; }
+  if (str1.length === 1 && str2.length === 1 && str1[0] === str2[0]) { return true; }
 
+  if (str1[0] === str2[0]) {
+    return true && compareStr(str1.slice(1), str2.slice(1));
+  } else {
+    return false && compareStr(str1.slice(1), str2.slice(1));
+  }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
@@ -218,6 +225,16 @@ var fizzBuzz = function(n) {
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  if (array.length === 1 && array[0] === value) {
+    return 1;
+  } else {
+    return 0;
+  }
+  if (array[0] === value) {
+    return 1 + countOccurrence(array.slice(1), value);
+  } else {
+    return 0 + countOccurrence(array.slice(1), value);
+  }
 };
 
 // 21. Write a recursive version of map.
