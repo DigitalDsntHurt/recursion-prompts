@@ -332,6 +332,29 @@ var alternateSign = function(array) {
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  function digitToString(string) {
+    let lookup = {
+      0: 'zero',
+      1: 'one',
+      2: 'two',
+      3: 'three',
+      4: 'four',
+      5: 'five',
+      6: 'six',
+      7: 'seven',
+      8: 'eight',
+      9: 'nine'
+    }
+
+    if (lookup[string]) {
+      return lookup[string];
+    }
+    return string;
+  }
+
+  let words = str.split(' ');
+  if (words.length === 1) { return digitToString(words[0]); }
+  return digitToString(words[0]) + ' ' + numToText(words.slice(1).join(' '));
 };
 
 
